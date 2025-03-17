@@ -1,6 +1,3 @@
-Sure! Let's simplify the resource group name. Here's the updated Terraform configuration with a simpler resource group name:
-
-```hcl
 provider "azurerm" {
   features {}
 }
