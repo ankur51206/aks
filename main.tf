@@ -41,18 +41,6 @@ module "my_vnet" {
   subnet_prefixes = ["10.1.0.0/16"]
 
   subnet_tags = var.tags
-
-  definitions {}
-
-  resource_group_name = azurerm_resource_group.my_rg.name
-  location            = azurerm_resource_group.my_rg.location
-
-  address_space   = ["10.0.0.0/8"]
-  subnet_prefixes = ["10.1.0.0/16"]
-
-  subnet_tags = var.tags
-
-  single_rules {}
 }
 
 resource "azurerm_kubernetes_cluster" "aks" {
@@ -85,6 +73,3 @@ output "resource_group_name" {
 output "aks_cluster_name" {
   value = azurerm_kubernetes_cluster.aks.name
 }
-
-
-
