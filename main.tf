@@ -85,6 +85,6 @@ output "resource_group_name" {
 output "aks_cluster_name" {
   value = azurerm_kubernetes_cluster.aks.name
 }
-```
 
-In this configuration, the resource group name is simplified to `"rg-${var.namespace}"`. If you have any further questions or need additional adjustments, feel free to ask!
+
+
