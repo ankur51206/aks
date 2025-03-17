@@ -22,3 +22,8 @@ variable "tags" {
     Environment       = ""
   }
 }
+
+variable "subnet_name" {
+  description = "Name of the subnet"
+  default     = "subnet-change-me"
+}
