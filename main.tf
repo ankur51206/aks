@@ -21,6 +21,14 @@ module "my_vnet" {
   subnet_tags = var.tags
 }
 
+resource "azurerm_subnet" "my_subnet" {
+  name                 = var.subnet_name
+  resource_group_name  = azurerm_resource_group.my_rg.name
+  virtual_network_name = module.my_vnet.vnet_name
+  address_prefixes     = ["10.1.1.0/24"]
+  tags                 = var.tags
+}
+
 resource "azurerm_kubernetes_cluster" "aks" {
   name                = "aks-${var.namespace}"
   location            = azurerm_resource_group.my_rg.location
