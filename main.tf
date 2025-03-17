@@ -2,28 +2,6 @@ provider "azurerm" {
   features {}
 }
 
-variable "namespace" {
-  default = "change me"
-}
-
-variable "location" {
-  default = "eastus2"
-}
-
-variable "tags" {
-  default = {
-    "ASGID"             = "ask id value"
-    "AssignmentGroup"   = "assignment group"
-    "CostCenter"        = ""
-    "Division"          = ""
-    "Portfolio"         = ""
-    "ProductName"       = ""
-    "Component"         = ""
-    "ComponentVersion"  = ""
-    "Environment"       = ""
-  }
-}
-
 resource "azurerm_resource_group" "my_rg" {
   name     = "rg-${var.namespace}"
   location = var.location
@@ -64,12 +42,4 @@ resource "azurerm_kubernetes_cluster" "aks" {
     network_plugin = "azure"
     network_policy = "azure"
   }
-}
-
-output "resource_group_name" {
-  value = azurerm_resource_group.my_rg.name
-}
-
-output "aks_cluster_name" {
-  value = azurerm_kubernetes_cluster.aks.name
 }
